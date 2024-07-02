@@ -1,6 +1,6 @@
 const userController = require('../controllers/userController')
 const authController = require('../middleware/authUser')
-const { userValidationRules, validate } = require('../middleware/validators');
+const { userValidationRules, validate } = require('../middleware/payloadValidations');
 const express = require('express')
 
 

@@ -3,11 +3,12 @@ const {StatusCodes} = require('http-status-codes')
 
 const createCategory = async (req, res) => {
   const userId = req.user.id;
+  console.log(userId)
   const { name, desc } = req.body;
 
   try {
     // Check for duplicate category name for the same user
-    const existingCategory = await Categories.findOne({ where: { name, userId } });
+    const existingCategory = await Categories.findOne({ where: { name } });
     if (existingCategory) {
       return res.status(StatusCodes.BAD_REQUEST).json({ error: 'Category name already exists for this user' });
     }

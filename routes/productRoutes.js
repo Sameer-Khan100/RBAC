@@ -2,7 +2,8 @@ const express = require('express')
 const productController = require('../controllers/productController')
 const authController = require('../middleware/authUser')
 const { StatusCodes } = require('http-status-codes')
-const { check, productValidationRules, validate} = require('express-validator');
+const { check} = require('express-validator');
+const {productValidationRules, validate} = require('../middleware/payloadValidations')
 
 
 const router = express.Router()

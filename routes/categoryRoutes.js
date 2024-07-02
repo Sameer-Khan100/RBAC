@@ -1,7 +1,7 @@
 const express = require('express')
 const categoryController = require('../controllers/categoryController')
 const authController = require('../middleware/authUser')
-const { categoryValidationRules, validate } = require('../middleware/validators');
+const { categoryValidationRules, validate } = require('../middleware/payloadValidations');
 
 const router = express.Router()
 
