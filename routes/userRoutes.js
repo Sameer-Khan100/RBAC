@@ -7,5 +7,6 @@ const router = express.Router()
 
 router.post('/create', userController.createUser)
 router.post('/signIn', authController.signIn)
+router.delete('/delete', authController.authenticateToken, userController.deleteUser)
 
 module.exports = router;

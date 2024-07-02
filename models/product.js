@@ -20,11 +20,11 @@ const Products = sequelize.define('Product', {
         allowNull: false
     },
     price:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.FLOAT,
         allowNull: false
     },
     quantity:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.FLOAT,
         allowNull: false
 
     },

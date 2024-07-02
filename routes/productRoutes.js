@@ -7,7 +7,7 @@ const { check, validationResult } = require('express-validator');
 
 const router = express.Router()
 
-router.post('/create', authController.authenticateToken, productController.createProduct)
+router.post('/create', authController.authenticateToken, authController.authenticateRole("super admin"), productController.createProduct)
 
 router.get('/get/:id',[
     check("id").isInt({min : 1})
