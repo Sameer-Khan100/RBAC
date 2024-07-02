@@ -9,22 +9,10 @@ const {StatusCodes} = require('http-status-codes')
 const {body, validationResult} = require('express-validator')
 const Categories = require('../models/category');
 const Product = require('../models/product');
-const { validationResult } = require("express-validator");
+
 
 
 const createUser = async (req, res) => {
-  // Perform request validation
-  await body('name').notEmpty().withMessage('Name is required').run(req);
-  await body('email').isEmail().withMessage('Invalid email').run(req);
-  await body('password').isString().withMessage('Password must be a string').notEmpty().withMessage('Password is required').run(req);
-  await body('role').isIn(['super admin', 'admin']).withMessage('Invalid role').run(req);
-
-  // Check validation result
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(StatusCodes.BAD_REQUEST).json({ errors: errors.array() });
-  }
-
   const { name, email, password, role } = req.body;
 
   try {
@@ -38,6 +26,7 @@ const createUser = async (req, res) => {
     res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: error.message });
   }
 };
+
 
   const deleteUser = async (req, res) => {
     try {
